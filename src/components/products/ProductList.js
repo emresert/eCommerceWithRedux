@@ -4,7 +4,7 @@ export default class ProductList extends Component {
     render() {
         return (
             <div>
-                
+                testPro
             </div>
         )
     }
