@@ -1,7 +1,4 @@
-// 3. Adım -> Herhangi bir event'in gerçekleştiğinde
-// o eyleme göre yönlendirme işlemi burada yapılır
-// Ayrıca metodlara gönderilecek state'ler
-// buradan transfer edilir.
+
 
 import * as actionTypes from "../actions/actionTypes"
 import initialState from "./initialState"
