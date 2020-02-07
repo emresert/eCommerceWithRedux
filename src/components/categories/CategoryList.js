@@ -18,12 +18,22 @@ class CategoryList extends Component {
     render() {
         return (
             <div>
-                <ListGroup>
-                    {this.props.categories.map(cat => (
-                        <ListGroupItem onClick={()=>this.props.actions.changeCategory(cat)} key={cat.id}>{cat.categoryName}</ListGroupItem>
-                        ))}
+                <ListGroup className="mt-2" >
+                   
+                        <ListGroupItem style={{backgroundColor:"aliceblue", fontWeight:"bolder",textAlign:"center"}}>
+                            Categories
+                        </ListGroupItem>
+                
                 </ListGroup>
-                    <h3>{this.props.currentCategory.categoryName}</h3>
+                <ListGroup >
+                    {this.props.categories.map(cat => (
+                        <ListGroupItem
+                            style={{fontSize:"14px", textAlign:"center",cursor:"pointer"}}
+                            active={this.props.currentCategory.id === cat.id ? true : null}
+                            onClick={() => this.props.actions.changeCategory(cat)} key={cat.id}>{cat.categoryName}</ListGroupItem>
+                    ))}
+                </ListGroup>
+                
             </div>
         )
     }
@@ -42,7 +52,7 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: {
             getCategories: bindActionCreators(categoryActions.getCategories, dispatch),
-            changeCategory : bindActionCreators(categoryActions.changeCategory,dispatch)
+            changeCategory: bindActionCreators(categoryActions.changeCategory, dispatch)
         }
 
     }

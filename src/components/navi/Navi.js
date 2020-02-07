@@ -31,8 +31,8 @@ export default class Navi extends Component {
 
         return (
             <div>
-                <Navbar color="light" light expand="md">
-                    <NavbarBrand href="/">e-commerce</NavbarBrand>
+                <Navbar style={{backgroundColor:"#ff8d01",color:"white"}}  expand="md">
+                    <NavbarBrand >e-commerce</NavbarBrand>
                     <NavbarToggler  />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
