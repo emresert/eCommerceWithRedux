@@ -1,11 +1,17 @@
 
+    // Reducer'leri birleştirme işlemi
+    // store oluşturmak için bütün reducer'ler
+    // birleştirilerek root olarak export edilir
+    import { combineReducers } from "redux"
+    import changeCategoryReducer from "./changeCategoryReducer"
+    import categoryListReducer from "./categoryListReducer"
 
-import {combineReducers} from "redux"
-import changeCategoryReducer from "./changeCategoryReducer"
 
+     // store configure edileriken import edilecek reducerların 
+     // birleştirildiği değişken
+    const rootReducer = combineReducers({
+        changeCategoryReducer, categoryListReducer
+    })
 
-const rootReducer = combineReducers({
-    changeCategoryReducer
-})
-
-export default rootReducer;
+   
+    export default rootReducer;
