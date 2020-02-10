@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CartSummary from "../cart/cartSummary"
 import {
     Collapse,
     Navbar,
@@ -45,7 +46,7 @@ export default class Navi extends Component {
                                  Form Demo   
                                 </NavLink>
                             </NavItem>
-                          
+                            <CartSummary></CartSummary>
                         </Nav>
                     </Collapse>
                 </Navbar>
