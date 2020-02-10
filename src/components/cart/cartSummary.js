@@ -3,34 +3,72 @@ import {
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
+    NavItem,
+    NavLink,
+    Badge
 } from 'reactstrap';
+import { connect } from 'react-redux'
+class cartSummary extends Component {
 
-export default class cartSummary extends Component {
+    renderEmpty() {
+        return (
+            <NavItem>
+                <NavLink >
+                    Empty Cart
+           </NavLink>
+            </NavItem>
+        )
+    }
+    cropItem = (item) =>{
+       var clearItem = item.substring(0, 14);
+       clearItem = clearItem+"... "
+       return clearItem
+    }
+    renderSummary() {
+        return (
+            <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                    Your Cart
+                </DropdownToggle >
+                <DropdownMenu right>
+                    {this.props.cart.map(cartItem => (
+                        <DropdownItem key={cartItem.product.id} >
+                            <Badge style={{borderRadius:"50%",float:"right",marginTop:"4px"}} color="danger">X</Badge>
+                            <Badge color="success"  style={{borderRadius:"50%",float:"left",marginTop:"4px"}}>{cartItem.quantity} </Badge>&nbsp;
+                         <span style={{marginRight:"35px"}}>{cartItem.product.productName.length>15?this.cropItem(cartItem.product.productName): cartItem.product.productName}</span>
+                          
+                                
+                               
+                            
+                            
+                            
+                        </DropdownItem>
+                    ))}
+
+
+                    <DropdownItem divider />
+                    <DropdownItem>
+                        Quit
+                        </DropdownItem>
+                </DropdownMenu>
+            </UncontrolledDropdown>
+        )
+
+    }
     render() {
         return (
             <div>
-                <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                        Your Cart
-                </DropdownToggle >
-                    <DropdownMenu right>
-       
-                        
-                            <DropdownItem >
-                                Option
-                            </DropdownItem>
-                            <DropdownItem >
-                                Option
-                            </DropdownItem>
-                      
-                        <DropdownItem divider />
-                        <DropdownItem>
-                        Quit
-                        </DropdownItem>
-                    </DropdownMenu>
-                </UncontrolledDropdown>
+                {this.props.cart.length > 0 ? this.renderSummary() : this.renderEmpty()}
             </div>
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        cart: state.cartReducer
+    }
+
+}
+export default connect(mapStateToProps)(cartSummary)
