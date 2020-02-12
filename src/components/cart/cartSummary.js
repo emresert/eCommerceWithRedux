@@ -9,6 +9,10 @@ import {
     Badge
 } from 'reactstrap';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import * as cartActions from "../../redux/actions/cartActions"
+import alertify from "alertifyjs";
+
 class cartSummary extends Component {
 
     renderEmpty() {
@@ -25,6 +29,12 @@ class cartSummary extends Component {
        clearItem = clearItem+"... "
        return clearItem
     }
+
+    removeItemFromCart = (product)=>{
+        this.props.actions.removeItemFromCart(product);
+        alertify.error(product.productName+ " removed!")
+    }
+    
     renderSummary() {
         return (
             <UncontrolledDropdown nav inNavbar>
@@ -34,15 +44,10 @@ class cartSummary extends Component {
                 <DropdownMenu right>
                     {this.props.cart.map(cartItem => (
                         <DropdownItem key={cartItem.product.id} >
-                            <Badge style={{borderRadius:"50%",float:"right",marginTop:"4px"}} color="danger">X</Badge>
+                            <Badge onClick={()=>this.removeItemFromCart(cartItem.product)} style={{borderRadius:"50%",float:"right",marginTop:"4px"}} color="danger">X</Badge>
                             <Badge color="success"  style={{borderRadius:"50%",float:"left",marginTop:"4px"}}>{cartItem.quantity} </Badge>&nbsp;
                          <span style={{marginRight:"35px"}}>{cartItem.product.productName.length>15?this.cropItem(cartItem.product.productName): cartItem.product.productName}</span>
-                          
-                                
-                               
-                            
-                            
-                            
+                                            
                         </DropdownItem>
                     ))}
 
@@ -69,6 +74,13 @@ function mapStateToProps(state) {
     return {
         cart: state.cartReducer
     }
-
 }
-export default connect(mapStateToProps)(cartSummary)
+
+function mapDispatchToProps(dispatch){
+    return {
+        actions : {
+            removeItemFromCart : bindActionCreators(cartActions.removeFromCart,dispatch)
+        } 
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(cartSummary)
