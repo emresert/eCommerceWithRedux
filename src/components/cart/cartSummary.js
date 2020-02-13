@@ -39,7 +39,7 @@ class cartSummary extends Component {
     renderSummary() {
         return (
             <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle nav caret style={{color:"white"}}>
                     Your Cart
                 </DropdownToggle >
                 <DropdownMenu right>
@@ -55,7 +55,7 @@ class cartSummary extends Component {
 
                     <DropdownItem divider />
                     <DropdownItem>
-                      <Link to={"/cart"}> Go to Cart</Link> 
+                      <Link style={{textDecoration:"none"}} to={"/cart"}> Go to Cart</Link> 
                         </DropdownItem>
                 </DropdownMenu>
             </UncontrolledDropdown>
