@@ -8,6 +8,7 @@ import {
     NavLink,
     Badge
 } from 'reactstrap';
+import {Link} from "react-router-dom"
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import * as cartActions from "../../redux/actions/cartActions"
@@ -54,7 +55,7 @@ class cartSummary extends Component {
 
                     <DropdownItem divider />
                     <DropdownItem>
-                        Quit
+                      <Link to={"/cart"}> Go to Cart</Link> 
                         </DropdownItem>
                 </DropdownMenu>
             </UncontrolledDropdown>
