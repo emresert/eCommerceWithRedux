@@ -1,6 +1,6 @@
 // savedProduct tanımlandı
 // (zorunlu değil)
-export default {
+export default {    
     currentCategory : {},
     categories:[],
     products:[],
