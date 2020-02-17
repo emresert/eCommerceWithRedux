@@ -6,7 +6,6 @@
    import saveProductReducer from "./saveProductReducer"
 
 
-   // Reducer root'a import edildi.
     const rootReducer = combineReducers({
         changeCategoryReducer, 
         categoryListReducer,

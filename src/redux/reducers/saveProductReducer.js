@@ -1,8 +1,7 @@
 import * as actionTypes from "../actions/actionTypes"
 import initialState from "./initialState"
 
-// gelen action type göre 
-// çalışacak action control'ü sağlandı
+
 export default function saveProductReducer(state = initialState.savedProduct, action) {
     switch (action.type) {
         case actionTypes.UPDATE_PRODUCT_SUCCESS:
