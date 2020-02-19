@@ -86,6 +86,9 @@ function AddOrUpdateProduct({
         })
     }
 
+    // child için proplar gönderildi
+    // child'da bu proplar ile this kullanmadan
+    // ulaşılabilecek.
     return (
         <ProductDetail
             product={product}

@@ -3,6 +3,8 @@ import React from "react"
 // Input type Text için html parametrelerini
 // obje notasyonu şeklinde tanımlayarak
 // parametre olarak geçtik
+// bu parametre değerleri ProductDetail'den
+// gelen prop'larla doldurulacak
 const TextInput = ({ name, label, onChange, placeHolder, value, error }) => {
 
     // form input nesnesi için bootstrap'dan
