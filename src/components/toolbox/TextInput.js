@@ -1,7 +1,8 @@
 import React from "react"
 
 // Input type Text için html parametrelerini
-// obje notasyonu olarak parametre olarak geçtik
+// obje notasyonu şeklinde tanımlayarak
+// parametre olarak geçtik
 const TextInput = ({ name, label, onChange, placeHolder, value, error }) => {
 
     // form input nesnesi için bootstrap'dan

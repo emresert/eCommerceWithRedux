@@ -49,7 +49,7 @@ class ProductList extends Component {
         <tr key={pro.id}>
           <th scope="row">{pro.id}</th>
 
-          <td><Link to={"/saveproduct/"+pro.id}>{pro.productName}</Link> </td>
+          <td><Link style={{textDecoration:"none"}} to={"/saveproduct/"+pro.id}>{pro.productName}</Link> </td>
 
           <td>{pro.quantityPerUnit}</td>
           <td>{pro.unitPrice}</td>
