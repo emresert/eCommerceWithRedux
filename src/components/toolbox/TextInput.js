@@ -1,22 +1,15 @@
 import React from "react"
 
-// Input type Text için html parametrelerini
-// obje notasyonu şeklinde tanımlayarak
-// parametre olarak geçtik
-// bu parametre değerleri ProductDetail'den
-// gelen prop'larla doldurulacak
+
 const TextInput = ({ name, label, onChange, placeHolder, value, error }) => {
 
-    // form input nesnesi için bootstrap'dan
-    // class özellikleri ekledik
-    // eğer error tanımlanmışsa ekstra class eklendi    
+
     let wrapperClass = "form-group"
     if (error && error.length > 0) {
         wrapperClass += " has-error"
     }
 
-    // geriye rxjs formatında bir
-    // geri dönüş yapılacak
+
     return (
         <div className={wrapperClass}>
             <label htmlFor={name}></label>
@@ -28,7 +21,7 @@ const TextInput = ({ name, label, onChange, placeHolder, value, error }) => {
                     value={value}
                     onChange={onChange}>
                 </input>
-                {/* error gelirse div'i çalıştırır */}
+
                 {error && <div className="alert alert-info">{error}</div>}
             </div>
         </div>
