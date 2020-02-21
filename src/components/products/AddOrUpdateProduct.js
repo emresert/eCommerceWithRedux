@@ -23,6 +23,7 @@ function AddOrUpdateProduct({
 
 
     const [product, setProduct] = useState({ ...props.product })
+    const [errors,setErrors] = useState({})
 
 
     useEffect(() => {
@@ -39,12 +40,45 @@ function AddOrUpdateProduct({
     function handleChange(event) {
 
         const { name, value } = event.target
-
-
         setProduct(previousProduct => ({
             ...previousProduct,
             [name]: name === "categoryId" ? parseInt(value, 10) : value
         }))
+        validate(value,name) ;
+    }
+
+    function validate(value,name){
+        if (value=="" && name == "productName") {
+            setErrors(previousErros => ({...previousErros,productName:"This area can not be empty!"}))
+        }
+        else{
+            setErrors(previousErros => ({...previousErros,productName:""}))
+        }
+        if (value=="" && name == "categoryId") {
+            setErrors(previousErros => ({...previousErros,categoryId:"This area can not be empty!"}))
+        }
+        else{
+            setErrors(previousErros => ({...previousErros,categoryId:""}))
+        }
+        if (value=="" && name == "quantityPerUnit") {
+            setErrors(previousErros => ({...previousErros,quantityPerUnit:"This area can not be empty!"}))
+        }
+        else{
+            setErrors(previousErros => ({...previousErros,quantityPerUnit:""}))
+        }
+        if (value=="" && name == "unitPrice") {
+            setErrors(previousErros => ({...previousErros,unitPrice:"This area can not be empty!"}))
+        }
+        else{
+            setErrors(previousErros => ({...previousErros,unitPrice:""}))
+        }
+        if (value=="" && name == "unitsInStock") {
+            setErrors(previousErros => ({...previousErros,unitsInStock:"This area can not be empty!"}))
+        }
+        else{
+            setErrors(previousErros => ({...previousErros,unitsInStock:""}))
+        }
+        
     }
     function handleSave(event) {
         event.preventDefault();
@@ -60,6 +94,7 @@ function AddOrUpdateProduct({
             categories={categories}
             onChange={handleChange}
             onSave={handleSave}
+            errors={errors}
         ></ProductDetail>
     )
 

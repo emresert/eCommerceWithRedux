@@ -7,7 +7,7 @@ import SelectInput from '../toolbox/SelectInput';
 
 
 
-const ProductDetail = ({ categories, product, onSave, onChange }) => {
+const ProductDetail = ({ categories, product, onSave, onChange,errors }) => {
     return (
         <form onSubmit={onSave}>
             <h2>{product.id ? "Update Product" : "Add Product"}</h2>
@@ -18,7 +18,7 @@ const ProductDetail = ({ categories, product, onSave, onChange }) => {
                 label="Product Name"
                 value={product.productName}
                 onChange={onChange}
-                error="Hata"
+                error={errors.productName}
             >
 
             </TextInput>
@@ -28,7 +28,7 @@ const ProductDetail = ({ categories, product, onSave, onChange }) => {
                 label="Quantity Per Unit"
                 value={product.quantityPerUnit}
                 onChange={onChange}
-                error="Hata"
+                error={errors.quantityPerUnit}
             ></TextInput>
 
                 <TextInput
@@ -36,7 +36,7 @@ const ProductDetail = ({ categories, product, onSave, onChange }) => {
                     label="unit Price"
                     value={product.unitPrice}
                     onChange={onChange}
-                    error="Hata"
+                    error={errors.unitPrice}
                 >
 
                 </TextInput>
@@ -46,7 +46,7 @@ const ProductDetail = ({ categories, product, onSave, onChange }) => {
                     label="units In Stock"
                     value={product.unitsInStock}
                     onChange={onChange}
-                    error="Hata"
+                    error={errors.unitsInStock}
                 >
 
                 </TextInput>
@@ -61,7 +61,7 @@ const ProductDetail = ({ categories, product, onSave, onChange }) => {
                         text: category.categoryName
                     }))}
                     onChange={onChange}
-                    error="Hata"
+                    error={errors.categoryId}
                 >
                 </SelectInput>
 
