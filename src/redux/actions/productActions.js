@@ -42,7 +42,7 @@ export async function handleResponse(response) {
     const error = await response.text();
     throw new Error(error);
 }
-// hatayı yakalayıp cevap olarak döndüren fonksiyon
+
 export function handleError(error) {
     console.log("Something went wrong")
     throw error;

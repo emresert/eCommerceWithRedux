@@ -1,5 +1,3 @@
-// Category Product için oluşturulan ana component
-// Routingde sıkıntı oluşturmaması için oluşturuldu
 import React, { Component } from 'react'
 import { Row,Col} from 'reactstrap'
 import  CategoryList from '../categories/CategoryList'

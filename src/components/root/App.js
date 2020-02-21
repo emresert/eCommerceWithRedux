@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 import Dashboard from './Dashboard';
 import cartDetail from "../cart/cartDetail"
 import AddOrUpdateProduct from '../products/AddOrUpdateProduct';
+import NotFound from '../common/NotFound';
 
 function App() {
   return (
@@ -15,11 +16,10 @@ function App() {
        
         <Route path="/product" component={Dashboard}></Route>
         <Route path="/cart" component={cartDetail}></Route>
-
-        {/* Verilen route bir parametre aldığında devreye girecek */}
         <Route path="/saveproduct/:productId" component={AddOrUpdateProduct}></Route>
-        
+        <Route path="/saveproduct/" component={AddOrUpdateProduct}></Route>
         <Route path="/" component={Dashboard}></Route>
+        <Route component={NotFound}></Route>
         
       </Switch>
     </Container>
