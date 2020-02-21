@@ -16,7 +16,6 @@ class CategoryList extends Component {
         this.props.actions.getCategories();
     }
     selectedCategory = (category) =>{
-        console.log(category.id)
         this.props.actions.changeCategory(category)
         this.props.actions.getProducts(category.id)
     }

@@ -9,6 +9,7 @@ import {
     NavItem,
     NavLink,
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 
 export default class Navi extends Component {
@@ -32,9 +33,11 @@ export default class Navi extends Component {
 
         return (
             <div>
-                <Navbar style={{backgroundColor:"#ff8d01",color:"white"}}  expand="md">
-                    <NavbarBrand >e-commerce</NavbarBrand>
-                    <NavbarToggler  />
+                <Navbar style={{ backgroundColor: "#ff8d01", color: "white" }} expand="md">
+                    <NavbarBrand >
+                        <Link style={{ textDecoration: "none", color: "white" }} to="/">e-commerce</Link>
+                    </NavbarBrand>
+                    <NavbarToggler />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
 
@@ -43,7 +46,7 @@ export default class Navi extends Component {
                             </NavItem>
                             <NavItem>
                                 <NavLink >
-                                 Form Demo   
+                                    <Link style={{ textDecoration: "none", color: "white" }} to="/saveproduct">Add Product</Link>
                                 </NavLink>
                             </NavItem>
                             <CartSummary></CartSummary>

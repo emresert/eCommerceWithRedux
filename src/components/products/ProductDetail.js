@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import TextInput from "../toolbox/TextInput"
 import SelectInput from '../toolbox/SelectInput';
