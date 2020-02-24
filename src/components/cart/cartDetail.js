@@ -7,15 +7,34 @@ import { Table, Button } from "reactstrap"
 import alertify from "alertifyjs"
 class cartDetail extends Component {
 
-removeFromCart = (product)=>{
-    this.props.actions.removeItemFromCart(product)
-    alertify.error(product.productName+" removed from Cart")
-}
+    removeFromCart = (product) => {
+        this.props.actions.removeItemFromCart(product)
+        alertify.error(product.productName + " removed from Cart")
+    }
 
-    render() {
+    cartIsEmpty() {
         return (
-            <div>
-                <Table striped>
+            <Table striped>
+            <thead>
+            <tr>
+                <th></th>
+               
+            </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <td style={{textAlign:"center"}}>Your cart is empty now</td>
+                </tr>
+            </tbody>
+            </Table>
+        )
+    }
+
+    cartIsNotEmpty() {
+        return (
+            <Table striped>
+            
+
                     <thead>
                         <tr>
                             <th>#</th>
@@ -26,20 +45,31 @@ removeFromCart = (product)=>{
                         </tr>
                     </thead>
                     <tbody>
-                        {this.props.cart.map(cartItem => (
-                            <tr key={cartItem.product.id}>
-                                <th scope="row">{cartItem.product.id}</th>
-                                <td>{cartItem.product.productName}</td>
-                                <td>{cartItem.quantity}</td>
-                                <td>{cartItem.product.unitPrice}</td>
+                {this.props.cart.map(cartItem => (
 
-                                <td>
-                                    <Button color="danger" onClick={() => this.removeFromCart(cartItem.product)}>Add</Button>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </Table>
+                    <tr key={cartItem.product.id}>
+                        <th scope="row">{cartItem.product.id}</th>
+                        <td>{cartItem.product.productName}</td>
+                        <td>{cartItem.quantity}</td>
+                        <td>{cartItem.product.unitPrice}</td>
+
+                        <td>
+                            <Button color="danger" onClick={() => this.removeFromCart(cartItem.product)}>Remove</Button>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+            </Table>
+        )
+    }
+
+    render() {
+        return (
+            <div>
+                
+                  
+                    {this.props.cart.length>0?this.cartIsNotEmpty():this.cartIsEmpty()}
+                
             </div>
         )
     }

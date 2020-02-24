@@ -16,15 +16,7 @@ import alertify from "alertifyjs";
 
 class cartSummary extends Component {
 
-    renderEmpty() {
-        return (
-            <NavItem>
-                <NavLink >
-                    Empty Cart
-           </NavLink>
-            </NavItem>
-        )
-    }
+  
     cropItem = (item) =>{
        var clearItem = item.substring(0, 14);
        clearItem = clearItem+"... "
@@ -36,6 +28,15 @@ class cartSummary extends Component {
         alertify.error(product.productName+ " removed!")
     }
     
+    renderEmpty() {
+        return (
+            <NavItem>
+                <NavLink >
+                    Empty Cart
+           </NavLink>
+            </NavItem>
+        )
+    }
     renderSummary() {
         return (
             <UncontrolledDropdown nav inNavbar>
